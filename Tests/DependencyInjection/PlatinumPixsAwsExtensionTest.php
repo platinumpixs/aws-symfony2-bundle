@@ -6,7 +6,7 @@
  * @link       http://www.platinumpixs.com
  */
 
-namespace PlatinumPixsAws\Tests\DependencyInjection;
+namespace PlatinumPixs\Aws\Tests\DependencyInjection;
 
 use \PlatinumPixs\Aws\DependencyInjection\PlatinumPixsAwsExtension,
     \Symfony\Component\DependencyInjection\ContainerBuilder;

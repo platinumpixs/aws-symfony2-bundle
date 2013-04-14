@@ -14,7 +14,7 @@
  * permissions and limitations under the License.
  */
 
-namespace PlatinumPixsAws;
+namespace PlatinumPixs\Aws;
 
 use \Symfony\Component\HttpKernel\Bundle\Bundle;
 
