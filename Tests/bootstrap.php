@@ -7,7 +7,7 @@ use \Symfony\Component\ClassLoader\UniversalClassLoader;
 $loader = new UniversalClassLoader();
 
 $loader->registerNamespaces(array(
-    'PlatinumPixs\Aws' => __DIR__ . '/../src',
+    'PlatinumPixs\Aws' => realpath(__DIR__ . '/../'),
 ));
 
 $loader->register();
