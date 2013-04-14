@@ -19,33 +19,34 @@ namespace PlatinumPixs\Aws\DependencyInjection;
 use \Symfony\Component\DependencyInjection\ContainerBuilder,
     \Symfony\Component\HttpKernel\DependencyInjection\Extension,
     \Symfony\Component\DependencyInjection\Definition,
-    \Symfony\Component\DependencyInjection\ContainerInterface;
+    \Symfony\Component\DependencyInjection\ContainerInterface,
+    \Symfony\Component\Config\FileLocator,
+    \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class PlatinumPixsAwsExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-        $definition = new Definition();
-        $definition->setFactoryClass('\Aws\Common\Aws')
-                   ->setFactoryMethod('factory');
-
-        $container->setDefinition('platinumpixs_aws.default', $definition);
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('platinum_pixs_aws.xml');
 
         $configs = $this->processConfiguration(new Configuration(), $configs);
 
+        $configs['default'] = array();
+
         foreach ($configs as $name => $config)
         {
-            $definition = new Definition();
-            $definition->setFactoryClass('\Aws\Common\Aws')
-                       ->setFactoryMethod('factory')
-                       ->setArguments(array($config));
+            $definition = new Definition('%platinum_pixs_aws.class%');
+            $definition->setFactoryClass('%platinum_pixs_aws.class%')
+                ->setFactoryMethod('factory')
+                ->setArguments(array($config));
 
-            $container->setDefinition('platinumpixs_aws.' . $name, $definition);
+            $container->setDefinition('platinum_pixs_aws.' . $name, $definition);
         }
     }
 
     public function getAlias()
     {
-        return 'platinumpixs_aws';
+        return 'platinum_pixs_aws';
     }
 }
