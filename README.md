@@ -47,8 +47,8 @@ To provide custom setup for access, secret keys. Add a config options in your co
 platinum_pixs_aws:
     base:
         region: us-east-1
-        access_key: my-access-key
-        secret_key: my-secret-key
+        key: my-access-key
+        secret: my-secret-key
 ```
 
 Then to access this setup call:
