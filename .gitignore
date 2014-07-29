@@ -3,3 +3,5 @@ phpunit.xml
 composer.phar
 composer.lock
 build.xml
+Vagrantfile
+.vagrant
