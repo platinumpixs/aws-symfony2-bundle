@@ -39,7 +39,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->extension->load(array(), $this->container);
 
-        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinumpixs_aws.default'));
+        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.default'));
     }
 
 
@@ -55,7 +55,21 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->extension->load(array($config), $this->container);
 
-        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinumpixs_aws.standard'));
+        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.standard'));
+    }
+
+
+    public function testBaseSetupWithKeyandSecret()
+    {
+        $config = array(
+            'standard' => array(
+                'region' => '<region name>'
+            )
+        );
+
+        $this->extension->load(array($config), $this->container);
+
+        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.standard'));
     }
 
 }
