@@ -1,7 +1,7 @@
 AWS SDK 2 - Symfony 2 Bundle
 ===================
 
-[![Latest Stable Version](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/v/stable.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![Total Downloads](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/downloads.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![Latest Unstable Version](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/v/unstable.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![License](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/license.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle)
+[![Build Status](https://travis-ci.org/platinumpixs/aws-symfony2-bundle.svg?branch=master)](https://travis-ci.org/platinumpixs/aws-symfony2-bundle)[![Latest Stable Version](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/v/stable.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![Total Downloads](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/downloads.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![Latest Unstable Version](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/v/unstable.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle) [![License](https://poser.pugx.org/platinumpixs/aws-symfony2-bundle/license.svg)](https://packagist.org/packages/platinumpixs/aws-symfony2-bundle)
 
 Provides a simple Symfony 2 Bundle to Wrap the AWS PHP SDK 2 - https://github.com/aws/aws-sdk-php
 
