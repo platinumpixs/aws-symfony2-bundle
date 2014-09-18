@@ -35,6 +35,19 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
         $this->extension = new PlatinumPixsAwsExtension();
     }
 
+    public function testTaggedService()
+    {
+        $config = array(
+            'standard' => array(
+                'region' => '<region name>'
+            )
+        );
+        $this->extension->load(array(), $this->container);
+        $this->extension->load(array($config), $this->container);
+
+        $this->assertEquals(2, count($this->container->findTaggedServiceIds('platinum_pixs_aws')));
+    }
+
     public function testDefaultSetup()
     {
         $this->extension->load(array(), $this->container);
