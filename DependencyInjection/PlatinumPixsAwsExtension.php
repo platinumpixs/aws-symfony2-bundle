@@ -16,12 +16,11 @@
 
 namespace PlatinumPixs\Aws\DependencyInjection;
 
-use \Symfony\Component\DependencyInjection\ContainerBuilder,
-    \Symfony\Component\HttpKernel\DependencyInjection\Extension,
-    \Symfony\Component\DependencyInjection\Definition,
-    \Symfony\Component\DependencyInjection\ContainerInterface,
-    \Symfony\Component\Config\FileLocator,
-    \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use \Symfony\Component\DependencyInjection\ContainerBuilder;
+use \Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use \Symfony\Component\DependencyInjection\Definition;
+use \Symfony\Component\Config\FileLocator;
+use \Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class PlatinumPixsAwsExtension extends Extension
 {
@@ -34,14 +33,21 @@ class PlatinumPixsAwsExtension extends Extension
 
         $configs['default'] = array();
 
-        foreach ($configs as $name => $config)
-        {
+        foreach ($configs as $name => $config) {
             $definition = new Definition('%platinum_pixs_aws.class%');
-            $definition->setFactoryClass('%platinum_pixs_aws.class%')
-                ->setFactoryMethod('factory')
-                ->setArguments(array($config));
 
-            $container->setDefinition('platinum_pixs_aws.' . $name, $definition);
+            // Handle Symfony >= 2.7
+            if (method_exists($definition, 'setFactory')) {
+                $definition->setFactory(array('%platinum_pixs_aws.class%', 'factory'));
+            } else {
+                $definition
+                    ->setFactoryClass('%platinum_pixs_aws.class%')
+                    ->setFactoryMethod('factory');
+            }
+
+            $definition->setArguments(array($config))->addTag('platinum_pixs_aws');
+
+            $container->setDefinition('platinum_pixs_aws.'.$name, $definition);
         }
     }
 
