@@ -37,12 +37,17 @@ class PlatinumPixsAwsExtension extends Extension
         foreach ($configs as $name => $config)
         {
             $definition = new Definition('%platinum_pixs_aws.class%');
-            $definition
-                ->setFactoryClass('%platinum_pixs_aws.class%')
-                ->setFactoryMethod('factory')
-                ->setArguments(array($config))
-                ->addTag('platinum_pixs_aws')
-            ;
+
+            // Handle Symfony >= 2.7
+            if (method_exists($definition, 'setFactory')) {
+                $definition->setFactory(array('%platinum_pixs_aws.class%', 'factory'));
+            } else {
+                $definition
+                    ->setFactoryClass('%platinum_pixs_aws.class%')
+                    ->setFactoryMethod('factory');
+            }
+
+            $definition->setArguments(array($config))->addTag('platinum_pixs_aws');
 
             $container->setDefinition('platinum_pixs_aws.' . $name, $definition);
         }
