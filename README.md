@@ -17,7 +17,7 @@ This will install Version 3 of the SDK.
 }
 ```
 
-If you with to stay on older Version 2 of the SDK.
+If you want to stay on older Version 2 of the SDK.
 
 ```json
 {
