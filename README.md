@@ -7,10 +7,22 @@ Provides a simple Symfony 2 Bundle to Wrap the AWS PHP SDK 2 - https://github.co
 
 ## Installing via Composer
 
+This will install Version 3 of the SDK.
+
 ```json
 {
     "require": {
         "platinumpixs/aws-symfony2-bundle": "dev-master"
+    }
+}
+```
+
+If you wisth to stay on older Version 2 of the SDK.
+
+```json
+{
+    "require": {
+        "platinumpixs/aws-symfony2-bundle": "1.2.0"
     }
 }
 ```
