@@ -52,7 +52,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
     {
         $this->extension->load(array(), $this->container);
 
-        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.default'));
+        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.default'));
     }
 
 
@@ -68,7 +68,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->extension->load(array($config), $this->container);
 
-        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.standard'));
+        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.standard'));
     }
 
 
@@ -82,7 +82,7 @@ class PlatinumPixsAwsExtensionTest extends \PHPUnit_Framework_TestCase
 
         $this->extension->load(array($config), $this->container);
 
-        $this->assertInstanceOf('Guzzle\Service\Builder\ServiceBuilder', $this->container->get('platinum_pixs_aws.standard'));
+        $this->assertInstanceOf('Aws\Sdk', $this->container->get('platinum_pixs_aws.standard'));
     }
 
 }
