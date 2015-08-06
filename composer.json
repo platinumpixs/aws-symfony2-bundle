@@ -21,8 +21,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.7",
-        "aws/aws-sdk-php": "2.*",
+        "php": ">=5.5",
+        "aws/aws-sdk-php": "3.*",
         "symfony/symfony": "2.*"
     },
     "minimum-stability": "dev",
