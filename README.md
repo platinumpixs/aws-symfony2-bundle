@@ -1,3 +1,8 @@
+This Package Is No Longer Being Updated - Please See the One Provided By Amazon AWS Directly
+
+https://github.com/aws/aws-sdk-php-symfony
+
+
 AWS SDK 2 - Symfony 2 Bundle
 ===================
 
