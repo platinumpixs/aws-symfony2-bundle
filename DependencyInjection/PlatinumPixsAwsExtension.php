@@ -35,6 +35,18 @@ class PlatinumPixsAwsExtension extends Extension
 
         foreach ($configs as $name => $config) {
             $definition = new Definition('%platinum_pixs_aws.class%');
+            $credentials = array();
+
+            foreach (array('key', 'secret') as $k) {
+                if (isset($config[$k])) {
+                    $credentials[$k] = $config[$k];
+                    unset($config[$k]);
+                }
+            }
+
+            if (!empty($credentials) && !isset($config['credentials'])) {
+                $config['credentials'] =  $credentials;
+            }
 
             $definition->setArguments(array($config))->addTag('platinum_pixs_aws');
 
